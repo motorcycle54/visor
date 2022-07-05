@@ -1,0 +1,61 @@
+.menu-container {
+    right: 0;
+    /* max-width: 50em; */
+    position: fixed;
+    /* width: 50em; */
+    z-index: 50;
+}
+
+.drop-zone {
+    border: 2px dotted #6c938a;
+    margin-bottom: 0.5em;
+    min-height: 3em;
+    position: relative;
+    text-align: center;
+
+}
+
+.drop-zone, .over {
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    -ms-flex-wrap: wrap;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: right;
+}
+
+.dropped {
+    background-color: #fff;
+    max-width: 60px;
+    border: 1px dashed #1aad8d;
+    cursor: pointer;
+    margin: 0.125em;
+}
+
+.dropped .icon, .dropped .icon svg {
+    margin: 0;
+    padding: 0;
+    color: red;
+}
+
+.dropped .name {
+    font-size: .6em;
+    margin: 0 0.5em 0.25em;
+    white-space: nowrap;
+    width: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropped:hover {    
+    border-color: #e3a826;
+}
+.dropped .icon:hover{
+    color: #e3a826;
+}

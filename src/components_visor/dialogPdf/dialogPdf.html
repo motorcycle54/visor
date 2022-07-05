@@ -1,0 +1,30 @@
+<div
+    class="dialog_wrapper"
+    :class="{
+      dialog_wrapper__normal: !isMaximize,
+      dialog_wrapper__maximize: isMaximize,
+    }"
+    :id="id"
+    
+  >
+    <slot></slot>
+    <v-toolbar dark class="dialog_header" :id="`${id}header`" @mousedown="dragElement($event, id)">
+      <v-toolbar-title>{{title}}</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items>
+        <v-btn icon dark @click="minimize(id)">
+          <v-icon>mdi-window-minimize</v-icon>
+        </v-btn>
+        <v-btn icon dark @click="maximize(id)">
+          <v-icon>mdi-arrow-expand-all</v-icon>
+        </v-btn>
+        <v-btn icon dark @click="closeDialog(id)">
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
+    <!-- <div class="dialog_header" :id="`${id}header`">Click here to move</div> -->
+    <div class="dialog_body">
+      <PDFJSViewer :path="`${path}`" :fileName="`${urlPdf}`" />
+    </div>
+  </div>

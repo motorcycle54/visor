@@ -1,0 +1,17 @@
+<DropArea @getItemId="onDrop">
+    <div v-for="item in getListDropped()" :key="item.id" @click="unDrop(item.id)">
+        <div class="dropped">
+            <div class="icon">
+                <v-icon>mdi-file-pdf</v-icon>
+            </div>
+            <div class="name">
+                {{item.title}}
+            </div>
+        </div>
+    </div>
+</DropArea>
+
+<div draggable="true" style="position: absolute" @dragstart="startDrag($event, item)" v-for="item in getListDialog()" :key="item.id" >
+    <DialogPdf :id="item.id" :title="item.title" :urlPdf="item.urlPdf" @getIdDialog="onDrop" @closeDialog="closeDialog">
+    </DialogPdf>
+</div>
