@@ -20,19 +20,26 @@ export default {
    
 
   name: 'HelloWorld',
-  props: [
-      
-    ],
+  props: {
+      message: String
+  },
   setup(props)
   {
-    let message = ref("123")
-    window.document.addEventListener('myCustomEvent', handleEvent, false)
-    function handleEvent(e) {
-      message.value= e.detail
-      console.log(e.detail) // outputs: {foo: 'bar'}
-    }
+      let message = ref(props.message)
+      
+      window.addEventListener('message', event => {
+      // IMPORTANT: check the origin of the data!
+      if (event.origin.startsWith('http://localhost:8081')) {
+          // The data was sent from your site.
+          // Data sent with postMessage is stored in event.data:
+          console.log(event.data);
+      } else {
+          console.log(event.origin);
+          return;
+      }
+});
     
-    return {message}
+      return {message}
   }
 }
 </script>
