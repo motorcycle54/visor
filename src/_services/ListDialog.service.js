@@ -5,6 +5,7 @@ export class ListDialogService {
         console.log("1111")
       }else{
         list_Dialog.push({id: item.id, title: item.title, urlPdf: item.url, minimize: false})
+        console.log(list_Dialog)
       }
       //return listDialog;      
     }

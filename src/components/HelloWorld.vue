@@ -1,8 +1,4 @@
 <template>
-  <v-container>
-     Hola: {{ message }}
-  </v-container>
-
   
 </template>
 
@@ -25,19 +21,16 @@ export default {
   },
   setup(props)
   {
-      let message = ref("")
+      let message = ref([])
       let lista_dialog = inject("lista_dialog");
       window.addEventListener('message', event => {
       // IMPORTANT: check the origin of the data!
       if (event.origin.startsWith('http://localhost:8080')) {
           // The data was sent from your site.
           // Data sent with postMessage is stored in event.data:
-          console.log(event.data);
-          message.value = event.data.value
-          lista_dialog.value.push(event.data)
-          console.log(lista_dialog)
+          lista_dialog.value.push(...event.data)
       } else {
-          console.log(event.origin);
+          
           return;
       }
 });
