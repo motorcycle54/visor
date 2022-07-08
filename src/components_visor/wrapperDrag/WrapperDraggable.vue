@@ -10,9 +10,9 @@ export default {
   setup(props) {
     const items = ref(
         [
-            // {id: 0, title: "Item A", minimize: true},
-            // {id: 1, title: "Item B", minimize: true},
-            // {id: 2, title: "Item C", minimize: true},
+            {id: 0, title: "Item A", minimize: true, url: "OFICIO-000669-2019-GG VB PAGINAS.pdf"},
+            {id: 1, title: "Item B", minimize: true, url: "OFICIO-000669-2019-GG VB PAGINAS.pdf"},
+            {id: 2, title: "Item C", minimize: true, url: "OFICIO-000669-2019-GG VB PAGINAS.pdf"},
 
         ]
     )

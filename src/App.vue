@@ -1,9 +1,6 @@
 <template>
-  <v-app>
-    <v-main>
-      <router-view/>
-    </v-main>
-  </v-app>
+  
+    <wrapper-drag :listDialog="listDialog"> </wrapper-drag>
 </template>
 
 <script>
