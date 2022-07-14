@@ -17,7 +17,7 @@ export default {
   },
   setup(props) {
     let message = ref([]);
-    let lista_dialog = inject("lista_dialog");
+    let listDialog = [];
     let path = "lib/PDFJS/web/viewer.html"; //path of the PDF.js viewer.html
     var configuracion_ventana =
       "_blank,width=600,height=600,top=500,left=500,toolbar=no,location=no,status=no,menubar=no";
@@ -32,13 +32,31 @@ export default {
       // }
       console.log(event.origin);
       let fileName = event.data.urlPdf;
-      //lista_dialog.value.push(...event.data)
+      
       let dir = ref(path + "?file=" + encodeURIComponent(fileName));
       console.log(dir.value);
-      window.open(dir.value, "_blank", configuracion_ventana).focus();
+      if(fileName)
+      {
+        listDialog.push(event.data)
+        const result = listDialog.find(buscarId(Id))
+        console.log(result)
+        // if(result=="")
+        // {
+
+        // }
+        
+        // window.open(dir.value, "_blank", configuracion_ventana).focus();
+        // console.log(listDialog)
+      }
     });
 
-    return { message, lista_dialog, configuracion_ventana, path };
+    function buscarId(Id)
+    {
+      return Id === listDialog.Id
+    }
+
+
+    return { message, listDialog, configuracion_ventana, path };
   },
 };
 </script>
