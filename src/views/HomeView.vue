@@ -1,5 +1,5 @@
 <template>
-  <HelloWorld />
+  <visor-pdf></visor-pdf> 
 </template>
 
 <script>
@@ -12,7 +12,12 @@ export default defineComponent({
   name: 'HomeView',
 
   components: {
-    HelloWorld,
-  },
+    HelloWorld
+},
 });
 </script>
+<style>
+html.v-overlay-scroll-blocked {
+  width: 0% !important;
+}
+</style>

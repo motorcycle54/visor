@@ -1,21 +1,8 @@
-<template>
-  <v-dialog v-model="openSeguimiento" activator="parent" persistent>
-
-      <!-- <time-line :data="destinos" @idDetalle="openDialogDetalle"></time-line> -->
-      <wrapper-drag :listDialog="listDialog"> </wrapper-drag>
-    <v-card-actions>
-      <v-btn color="primary" block @click="closeSeguimiento()">CERRAR</v-btn>
-    </v-card-actions>
-</v-dialog>
-
-</template>
+<template src="./visorPDF.html"> </template>
 
 <script>
 import { ref } from "vue";
-import { DocumentRequestModel } from "../_models/documentRequest.model";
-import { ListDialogService } from "../_services/ListDialog.service";
-import { data1 } from "../_dataExterna/data";
-import { IframeChannelService } from "../_services/iframeChannel.service"
+import { IframeChannelService } from "../../_services/iframeChannel.service"
 import {
   inject,
   getCurrentInstance,
@@ -63,7 +50,7 @@ export default {
     // // }
     
     const iframeChannelService = new IframeChannelService();
-      let destinos = ref(data1);
+      //let destinos = ref(data1);
       let openSeguimiento = ref(true)
       let openDetalle = ref(false);
       
@@ -92,7 +79,7 @@ export default {
 
 
 
-    return { openSeguimiento, openDetalle, destinos, closeSeguimiento, openDialogDetalle,listDialog };
+    return { openSeguimiento, openDetalle, closeSeguimiento, openDialogDetalle,listDialog };
   },
 };
 </script>
@@ -103,6 +90,10 @@ export default {
 {
   width: 100vw;
   height: 100vh;
+}
+
+html.v-overlay-scroll-blocked {
+  width: 0% !important;
 }
 
 </style>
