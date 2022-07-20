@@ -1,0 +1,8 @@
+<v-dialog v-model="openSeguimiento" activator="parent" persistent>
+
+    <!-- <time-line :data="destinos" @idDetalle="openDialogDetalle"></time-line> -->
+    <wrapper-drag :listDialog="listDialog"> </wrapper-drag>
+    <v-card-actions>
+        <v-btn color="primary" block @click="closeSeguimiento()">CERRAR</v-btn>
+    </v-card-actions>
+</v-dialog>
