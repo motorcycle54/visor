@@ -50,14 +50,12 @@ export default {
     // // }
     
     const iframeChannelService = new IframeChannelService();
-      //let destinos = ref(data1);
       let openSeguimiento = ref(true)
       let openDetalle = ref(false);
       
       onMounted(async() => {
         let message = await iframeChannelService.listenMessage();
         if( message.message.constructor === Array ){          
-          // destinos.value = message.message
           listDialog.value.push(...message.message)
           console.log("com visor",message.message)
           console.log("lista para el visor",listDialog.value)
