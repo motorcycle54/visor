@@ -3,6 +3,7 @@
 <script>
 import { ref } from "vue";
 import { IframeChannelService } from "../../_services/iframeChannel.service"
+
 import {
   inject,
   getCurrentInstance,
@@ -50,29 +51,31 @@ export default {
     // // }
     
     const iframeChannelService = new IframeChannelService();
-      let openSeguimiento = ref(true)
-      let openDetalle = ref(false);
-      
-      onMounted(async() => {
-        let message = await iframeChannelService.listenMessage();
-        if( message.message.constructor === Array ){          
-          listDialog.value.push(...message.message)
-          console.log("com visor",message.message)
-          console.log("lista para el visor",listDialog.value)
-        }
-      });
-
-      let openDialogDetalle = (id) => {
-        if(!!id){
-          console.log("este es el id", id)
-          openDetalle.value = true;
-        }
+    
+    let openSeguimiento = ref(true)
+    let openDetalle = ref(false);
+    
+    onMounted(async() => {
+      let message = await iframeChannelService.listenMessage();
+      if( message.message.constructor === Array ){          
+        listDialog.value.push(...message.message)
+        
+        
+        console.log("com visor",message.message)
+        console.log("lista para el visor",listDialog.value)
+        
       }
-
-      let closeSeguimiento = ()=>{
-        openSeguimiento.value = false;
-        iframeChannelService.sendMessage({type:"closeSeguimiento", data: openSeguimiento.value});
+    });
+    let openDialogDetalle = (id) => {
+      if(!!id){
+        console.log("este es el id", id)
+        openDetalle.value = true;
       }
+    }
+    let closeSeguimiento = ()=>{
+      openSeguimiento.value = false;
+      iframeChannelService.sendMessage({type:"closeSeguimiento", data: openSeguimiento.value});
+    }
 
 
 

@@ -2,6 +2,8 @@
 <script>
 import { ref } from "@vue/reactivity";
 import PDFJSViewer from "../PDFJSViewer/PDFJSViewer.vue";
+import { EncodePDF } from "@/_services/EncodePDF.service";
+import { inject } from "vue";
 
 export default {
   name: "DialogPdf",
@@ -10,17 +12,21 @@ export default {
     PDFJSViewer,
   },
   setup(props, { emit }) {
+    const encodePDF = new EncodePDF();
     let namePdf = "OFICIO-000669-2019-GG VB PAGINAS.pdf";
     let path = "lib/PDFJS/web/viewer.html"; //path of the PDF.js viewer.html
     let urlPdf = ref(props.urlPdf)
+    let listDialog = inject("lista_dialog");
+
+    
 
     let isMaximize = ref(false);
 
     function maximize(idDialog) {
       let elmnt = document.getElementById(idDialog);
       isMaximize.value = !isMaximize.value;
-      elmnt.style.top = "0px";
-      elmnt.style.left = "0px";
+      elmnt.style.top = "-50vh";
+      elmnt.style.left = "-50vw";
     }
 
     function minimize(idDialog) {
@@ -32,11 +38,18 @@ export default {
     }
 
     function openPdfExterno (idDialog) {
-        let dir = ref(path + "?file=" + encodeURIComponent(urlPdf.value));
-        console.log(dir)
-        var configuracion_ventana = "_blank,width=600,height=600,top=500,left=500,toolbar=no,location=no,status=no,menubar=no";
-        let windowsSeguimiento = window.open(dir.value, "_blank", configuracion_ventana);
-        closeDialog(idDialog)
+        encodePDF.downloadFile(urlPdf).then(data => 
+          {
+              console.log("URL", data)
+              // let dir = ref(path + "?file=" + encodeURIComponent(urlPdf.value));
+              // console.log(dir)
+              var configuracion_ventana = "_blank,width=600,height=600,top=500,left=500,toolbar=no,location=no,status=no,menubar=no";
+              window.open(path + "?file=" + encodeURIComponent(data), configuracion_ventana);
+              //let windowsSeguimiento = window.open(data, "_blank", configuracion_ventana);
+              closeDialog(idDialog)    
+            
+          })
+        
       }
 
     // onMounted(() => {
@@ -125,8 +138,6 @@ export default {
   min-width: 100%;
   width: 100vw;
   height: 100vh;
-  top: -450px;
-  left: -500px;
 }
 
 .dialog_header {
