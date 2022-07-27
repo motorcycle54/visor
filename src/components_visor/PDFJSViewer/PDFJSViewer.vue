@@ -13,6 +13,7 @@ export default {
   setup(props) {
 
     let dir = ref(props.path + "?file=" + encodeURIComponent(props.fileName));
+    
     console.log(dir.value)
 
     return { dir };

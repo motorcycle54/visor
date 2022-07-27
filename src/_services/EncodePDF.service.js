@@ -2,16 +2,19 @@ export class EncodePDF
 {
     async downloadFile(url) 
     {
-        const myRequest = new Request(url);
-
-        fetch(myRequest)
+        const options = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json;charset=UTF-8"
+            }
+        }
+        return await fetch(url,options)
         .then((response) => response.blob())
         .then((myBlob) => {
             console.log(myBlob)
             const objectURL = URL.createObjectURL(myBlob);
-            //console.log(objectURL)
-            // var encodedDAta = window.btoa(myBlob)
             console.log(objectURL)
+
 
             return objectURL
 
