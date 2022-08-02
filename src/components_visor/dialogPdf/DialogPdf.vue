@@ -4,7 +4,7 @@ import { ref } from "@vue/reactivity";
 import PDFJSViewer from "../PDFJSViewer/PDFJSViewer.vue";
 import { EncodePDF } from "@/_services/EncodePDF.service";
 import { inject } from "vue";
-import { IframeChannelService } from "@/_services/iframeChannel.service";
+import { IframeChannelService } from "../../_services/iframeChannel.service"
 
 export default {
   name: "DialogPdf",
@@ -40,12 +40,11 @@ export default {
       emit("closeDialog", idDialog);
     }
 
-    function openPdfExterno () {
-      console.log(urlPdf.value)
+    let openPdfExterno = ()=>{
+      console.log("Entra")
       openSeguimientoExterno.value = true;
-      iframeChannelService.sendMessage({type:"abrirSeguimientoExterno",data: openSeguimientoExterno.value})
-        
-      }
+      iframeChannelService.sendMessage({type:"abrirSeguimientoExterno", data: openSeguimientoExterno.value});
+    }
 
     // onMounted(() => {
     //   dragElement(document.getElementById("1"));
