@@ -57,11 +57,11 @@ export default {
     
     onMounted(async() => {
       let message = await iframeChannelService.listenMessage();
-      if( message.message.constructor === Array ){          
+      if( message.message.constructor === Array ){
+        
+        
+        console.log("com visor",message.message.urlPdf )        
         listDialog.value.push(...message.message)
-        
-        
-        console.log("com visor",message.message)
         console.log("lista para el visor",listDialog.value)
         
       }
