@@ -60,7 +60,8 @@ export default {
       if( message.message.constructor === Array ){
         
         
-        console.log("com visor",message.message.urlPdf )        
+        console.log("com visor",message.message)
+
         listDialog.value.push(...message.message)
         console.log("lista para el visor",listDialog.value)
         
