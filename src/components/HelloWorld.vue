@@ -73,7 +73,7 @@ export default {
           // destinos.value = message.message
           listDialog.value.push(...message.message)
           console.log("com visor",message.message)
-          console.log("lista para el visor",listDialog.value)
+          console.log("hello---lista para el visor",listDialog.value)
         }
       });
 

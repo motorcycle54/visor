@@ -61,8 +61,10 @@ export default {
         
         
         console.log("com visor",message.message)
-
+        // listDialog.value.splice(0,listDialog.value.length)
+       
         listDialog.value.push(...message.message)
+        console.log(listDialog.value.length)
         console.log("lista para el visor",listDialog.value)
         
       }

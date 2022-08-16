@@ -3,11 +3,14 @@
 import { ref } from "@vue/reactivity";
 import DropArea from "../dropArea/DropArea.vue";
 import DialogPdf from "../dialogPdf/DialogPdf.vue";
+
+
 export default {
   name: "WrapperDrag",
   components: { DropArea, DialogPdf },
   props: ["listDialog"],
-  setup(props) {
+  emits: ['close'],
+  setup(props,{emit}) {
     const items = ref(
         [
             // {id: 0, title: "Item A", minimize: true, url: "OFICIO-000669-2019-GG VB PAGINAS.pdf"},
@@ -40,6 +43,7 @@ export default {
     }
 
     const closeDialog = (itemID) => {
+        emit("close");
         const index = items.value.findIndex((item)=> item.id == itemID);
         if(index > -1)
             items.value.splice(index, 1);
