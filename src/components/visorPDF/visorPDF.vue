@@ -75,15 +75,16 @@ export default {
         openDetalle.value = true;
       }
     }
-    let closeSeguimiento = ()=>{
-      openSeguimiento.value = false;
-      iframeChannelService.sendMessage({type:"closeSeguimiento", data: openSeguimiento.value});
+    let closeVisor = ()=>{
+      listDialog.value.splice(0,listDialog.value.length)
+      // openSeguimiento.value = false;
+      // iframeChannelService.sendMessage({type:"closeSeguimiento", data: openSeguimiento.value});
     }
 
 
 
 
-    return { openSeguimiento, openDetalle, closeSeguimiento, openDialogDetalle,listDialog };
+    return { openSeguimiento, openDetalle, closeVisor, openDialogDetalle,listDialog };
   },
 };
 </script>

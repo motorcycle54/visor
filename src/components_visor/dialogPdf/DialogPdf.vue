@@ -2,8 +2,8 @@
 <script>
 import { ref } from "@vue/reactivity";
 import PDFJSViewer from "../PDFJSViewer/PDFJSViewer.vue";
-import { EncodePDF } from "@/_services/EncodePDF.service";
 import { inject } from "vue";
+import { DecodePDF } from "@/_services/DecodePDF.service";
 import { IframeChannelService } from "../../_services/iframeChannel.service"
 
 export default {
@@ -13,13 +13,14 @@ export default {
     PDFJSViewer,
   },
   setup(props, { emit }) {
-    const encodePDF = new EncodePDF();
     let namePdf = "OFICIO-000669-2019-GG VB PAGINAS.pdf";
     let path = "lib/PDFJS/web/viewer.html"; //path of the PDF.js viewer.html
     let urlPdf = ref(props.urlPdf)
     let listDialog = inject("lista_dialog");
     let openSeguimientoExterno = ref(false)
+
     const iframeChannelService = new IframeChannelService();
+    let DecodePDFService = new DecodePDF();
 
     
 
@@ -40,10 +41,13 @@ export default {
       emit("closeDialog", idDialog);
     }
 
-    let openPdfExterno = ()=>{
+    let openPdfExterno = (idDialog)=>{
       console.log("Entra")
-      openSeguimientoExterno.value = true;
-      iframeChannelService.sendMessage({type:"abrirSeguimientoExterno", data: openSeguimientoExterno.value});
+      console.log(props.urlPdf)
+      var configuracion_ventana = "_blank,width=600,height=600,top=500,left=500,toolbar=no,location=no,status=no,menubar=no";
+      let blobUrl = DecodePDFService.convertBase64ToBlob(props.urlPdf)
+      let windowsSeguimiento = window.open(blobUrl, "_blank", configuracion_ventana);
+      closeDialog(idDialog)
     }
 
     // onMounted(() => {
