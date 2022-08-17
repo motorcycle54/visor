@@ -1,8 +1,6 @@
 .menu-container {
     right: 0;
-    /* max-width: 50em; */
     position: fixed;
-    /* width: 50em; */
     z-index: 50;
 }
 

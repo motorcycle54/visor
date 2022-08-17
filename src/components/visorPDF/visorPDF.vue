@@ -13,43 +13,7 @@ import {
 export default {
   name: "HelloWorld",
   setup() {
-    let listDialog = inject("lista_dialog");
-    // let path = "lib/PDFJS/web/viewer.html"; //path of the PDF.js viewer.html
-    // var configuracion_ventana =
-    //   "_blank,width=600,height=600,top=500,left=500,toolbar=no,location=no,status=no,menubar=no";
-    // window.addEventListener("message", (event) => {
-    //   // IMPORTANT: check the origin of the data!
-    //   // if (event.origin.startsWith("http://localhost:8080")) {
-    //   //   // The data was sent from your site.
-    //   //   // Data sent with postMessage is stored in event.data:
-    //   //   //windowOpen(dir.value);
-    //   // } else {
-    //   //   return;
-    //   // }
-    //   // console.log(event.origin);
-    //   let fileName = event.data.urlPdf;
-      
-    //   let dir = ref(path + "?file=" + encodeURIComponent(fileName));
-    //   console.log(dir.value);
-    //   if(fileName)
-    //   {
-    //     listDialog.value.push(event.data)
-    //     // const result = listDialog.find(buscarId(Id))
-    //     // console.log(result)
-    //     // if(result=="")
-    //     // {
-
-    //     // }
-    //     window.open(dir.value, "_blank", configuracion_ventana).focus();
-    //     console.log(listDialog)
-    //   }
-    // });
-
-    // // function buscarId(Id)
-    // // {
-    // //   return Id === listDialog.Id
-    // // }
-    
+    let listDialog = inject("lista_dialog"); 
     const iframeChannelService = new IframeChannelService();
     
     let openSeguimiento = ref(true)
@@ -61,8 +25,6 @@ export default {
         
         
         console.log("com visor",message.message)
-        // listDialog.value.splice(0,listDialog.value.length)
-       
         listDialog.value.push(...message.message)
         console.log(listDialog.value.length)
         console.log("lista para el visor",listDialog.value)
@@ -77,8 +39,6 @@ export default {
     }
     let closeVisor = ()=>{
       listDialog.value.splice(0,listDialog.value.length)
-      // openSeguimiento.value = false;
-      // iframeChannelService.sendMessage({type:"closeSeguimiento", data: openSeguimiento.value});
     }
 
 

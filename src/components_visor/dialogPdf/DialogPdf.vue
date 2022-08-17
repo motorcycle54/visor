@@ -50,10 +50,6 @@ export default {
       closeDialog(idDialog)
     }
 
-    // onMounted(() => {
-    //   dragElement(document.getElementById("1"));
-    // });
-
     function dragElement(event, idDialog) {
       if (!isMaximize.value) {
         let elmnt = document.getElementById(idDialog);

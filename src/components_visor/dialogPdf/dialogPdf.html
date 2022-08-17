@@ -15,9 +15,6 @@
         <v-btn icon dark @click="openPdfExterno()">
           <v-icon>mdi-dock-window</v-icon>
         </v-btn>
-        <!-- <v-btn icon dark @click="minimize(id)">
-          <v-icon>mdi-window-minimize</v-icon>
-        </v-btn> -->
         <v-btn icon dark @click="maximize(id)">
           <v-icon>mdi-arrow-expand-all</v-icon>
         </v-btn>
@@ -26,7 +23,6 @@
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
-    <!-- <div class="dialog_header" :id="`${id}header`">Click here to move</div> -->
     <div class="dialog_body">
       <PDFJSViewer :path="`${path}`" :fileName="`${urlPdf}`"  />
     </div>

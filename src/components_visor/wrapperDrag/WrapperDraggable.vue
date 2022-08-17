@@ -13,6 +13,7 @@ export default {
   setup(props,{emit}) {
     const items = ref(
         [
+            // PARA HACER PRUEBAS
             // {id: 0, title: "Item A", minimize: true, url: "OFICIO-000669-2019-GG VB PAGINAS.pdf"},
             // {id: 1, title: "Item B", minimize: true, url: "OFICIO-000669-2019-GG VB PAGINAS.pdf"},
             // {id: 2, title: "Item C", minimize: true, url: "OFICIO-000669-2019-GG VB PAGINAS.pdf"},
