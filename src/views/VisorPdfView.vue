@@ -1,10 +1,10 @@
-<!-- <template>
+<template>
   <visor-pdf></visor-pdf>
 </template>
 
 <script>
 export default {
-  name: 'VisorPdf',
+  name: 'VisorPdfView',
 
   components: {
     
@@ -16,4 +16,4 @@ export default {
 html.v-overlay-scroll-blocked {
   width: 0% !important;
 }
-</style> -->
+</style>

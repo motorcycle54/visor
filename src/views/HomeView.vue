@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <visor-pdf></visor-pdf> 
 </template>
 
@@ -18,4 +18,4 @@ export default defineComponent({
 html.v-overlay-scroll-blocked {
   width: 0% !important;
 }
-</style>
+</style> -->

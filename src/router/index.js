@@ -15,7 +15,7 @@ const routes = [
   {
     path: '/pdf-visor',
     name: 'pdf Visor',
-    component: () => import(/* webpackChunkName: "about" */ '../views/VisorPdf.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/VisorPdfView.vue')
   }
 ]
 

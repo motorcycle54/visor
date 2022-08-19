@@ -44,7 +44,7 @@ export default {
     let openPdfExterno = (idDialog)=>{
       console.log("Entra")
       console.log(props.urlPdf)
-      var configuracion_ventana = "_blank,width=600,height=600,top=500,left=500,toolbar=no,location=no,status=no,menubar=no";
+      var configuracion_ventana = "width=600,height=600,top=500,left=500,toolbar=no,location=no,status=no,menubar=no";
       let blobUrl = DecodePDFService.convertBase64ToBlob(props.urlPdf)
       let windowsSeguimiento = window.open(blobUrl, "_blank", configuracion_ventana);
       closeDialog(idDialog)
