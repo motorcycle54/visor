@@ -29,7 +29,7 @@ export default {
       if (inicializaClose.value) {
         if (listDialog.value.length == 0) {
           iframeChannelService.sendMessage({
-            type: "closeSeguimiento",
+            type: "closeVisor",
             data: false,
           });
         }

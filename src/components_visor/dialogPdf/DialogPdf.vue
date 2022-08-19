@@ -17,7 +17,7 @@ export default {
     let path = "lib/PDFJS/web/viewer.html"; //path of the PDF.js viewer.html
     let urlPdf = ref(props.urlPdf)
     let listDialog = inject("lista_dialog");
-    let openSeguimientoExterno = ref(false)
+    // let openSeguimientoExterno = ref(false)
 
     const iframeChannelService = new IframeChannelService();
     let DecodePDFService = new DecodePDF();
@@ -46,7 +46,7 @@ export default {
       console.log(props.urlPdf)
       var configuracion_ventana = "width=600,height=600,top=500,left=500,toolbar=no,location=no,status=no,menubar=no";
       let blobUrl = DecodePDFService.convertBase64ToBlob(props.urlPdf)
-      let windowsSeguimiento = window.open(blobUrl, "_blank", configuracion_ventana);
+      window.open(blobUrl, "_blank", configuracion_ventana);
       closeDialog(idDialog)
     }
 

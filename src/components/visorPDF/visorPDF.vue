@@ -16,7 +16,7 @@ export default {
     let listDialog = inject("lista_dialog"); 
     const iframeChannelService = new IframeChannelService();
     
-    let openSeguimiento = ref(true)
+    let openConexion = ref(true)
     let openDetalle = ref(false);
     
     onMounted(async() => {
@@ -44,7 +44,7 @@ export default {
 
 
 
-    return { openSeguimiento, openDetalle, closeVisor, openDialogDetalle,listDialog };
+    return { openConexion, openDetalle, closeVisor, openDialogDetalle,listDialog };
   },
 };
 </script>
