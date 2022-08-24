@@ -33,7 +33,6 @@ export default {
     });
     let openDialogDetalle = (id) => {
       if(!!id){
-        console.log("este es el id", id)
         openDetalle.value = true;
       }
     }

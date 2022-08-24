@@ -42,14 +42,11 @@ export default {
     }
 
     let openPdfExterno = (idDialog)=>{
-      console.log("Entra")
-      console.log(props.urlPdf)
       var configuracion_ventana = "width=600,height=600,top=500,left=500,toolbar=no,location=no,status=no,menubar=no";
       let blobUrl = DecodePDFService.convertBase64ToBlob(props.urlPdf)
       let ventana = window.open(blobUrl,`${idDialog}`, configuracion_ventana);
 
       closeDialog(idDialog)
-      console.log(idDialog)
     }
 
     function dragElement(event, idDialog) {
@@ -123,14 +120,14 @@ export default {
   box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 20%),
     0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%);
 
-   top: -250px;
+   top: -340px;
    left: -250px;
 }
 
 .dialog_wrapper__normal {
   min-width: 600px;
   width: 35vw;
-  height: 50vh;
+  height: 70vh;
 }
 
 .dialog_wrapper__maximize {
