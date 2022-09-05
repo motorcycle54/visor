@@ -22,13 +22,7 @@ export default {
     onMounted(async() => {
       let message = await iframeChannelService.listenMessage();
       if( message.message.constructor === Array ){
-        
-        
-        console.log("com visor",message.message)
-        listDialog.value.push(...message.message)
-        console.log(listDialog.value.length)
-        console.log("lista para el visor",listDialog.value)
-        
+        listDialog.value.push(...message.message)      
       }
     });
     let openDialogDetalle = (id) => {
